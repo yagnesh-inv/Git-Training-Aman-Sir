@@ -1,87 +1,117 @@
-# Task 1
-## Feature Development and Release Workflow
+# Task 1: Feature Development and Release Workflow
 
-![Git workflow](images/task1.png)
-![Git workflow](images/task1-1.png)
+## Workflow Overview
 
+This guide outlines the steps for developing a feature, creating a release branch, and merging changes into the main branch.
+![Workflow](images/task1.png)
+![Workflow](images/task1-1.png)
+### **Workflow Steps**
 
-## Steps
+#### 1. Switch to the Feature Branch (Create if Necessary):
+```bash
+git switch -c feature
+```
 
-1. **Switch to the feature branch** (create if necessary):
+#### 2. Commit Your Changes:
+Make necessary code changes and commit them. Multiple commits can be made as needed:
+```bash
+git commit -m "Your commit message"
+```
 
-   ```bash
-   git switch feature -c
-   ```
+#### 3. Switch to the Main Branch:
+```bash
+git checkout main
+```
 
-2. **Commit your changes**:
-   Make your necessary code changes and commit them. You can perform multiple commits as needed:
+#### 4. Create a Release Branch:
+```bash
+git switch -c release
+```
 
-   ```bash
-   git commit -m "Your commit message"
-   ```
+#### 5. Commit Any Additional Changes (if Necessary) on the Release Branch:
+```bash
+git commit -m "Release preparation commit"
+```
 
-3. **Switch to the main branch**:
+#### 6. Switch Back to the Main Branch:
+```bash
+git checkout main
+```
 
-   ```bash
-   git checkout main
-   ```
+#### 7. Commit Any Final Changes (if Necessary) on the Main Branch:
+```bash
+git commit -m "Final changes before release"
+```
 
-4. **Create a release branch**:
+#### 8. Switch to the Release Branch:
+```bash
+git checkout release
+```
 
-   ```bash
-   git switch -c release
-   ```
+#### 9. Merge the Feature Branch into the Release Branch:
+```bash
+git merge feature
+```
 
-5. **Commit any additional changes** (if necessary) on the release branch:
+#### 10. Switch Back to the Main Branch:
+```bash
+git checkout main
+```
 
-   ```bash
-   git commit -m "Release preparation commit"
-   ```
+#### 11. Merge the Release Branch into the Main Branch:
+```bash
+git merge release
+```
 
-6. **Switch back to the main branch**:
+---
 
-   ```bash
-   git checkout main
-   ```
+# Task 2: Enforcing Git Branch Rules and Approving Commits
 
-7. **Commit any final changes** (if necessary) on the main branch:
+## **Workflow Overview**
+This section describes how to enforce branch rules, make commits in the dev branch, and approve them before merging into the main branch.
 
-   ```bash
-   git commit -m "Final changes before release"
-   ```
+### **Workflow Steps**
 
-8. **Switch to the release branch**:
+#### **Step 1: Set Up Branch Rules**
+- Navigate to **Settings > Branches > Add Branch Ruleset**.
+- Configure rules to enforce structured commits and approvals before merging.
 
-   ```bash
-   git checkout release
-   ```
+![Git Rule Creation](images/git-rule-create.png)
 
-9. **Merge the feature branch into the release branch**:
+#### **Step 2: Commit Changes in the Dev Branch**
+- Switch to the `dev` branch:
+  ```bash
+  git switch dev
+  ```
+- Make a commit:
+  ```bash
+  git commit -m "Your commit message"
+  ```
 
-   ```bash
-   git merge feature
-   ```
+![Commit in Dev Branch](images/change-commit.png)
 
-10. **Switch back to the main branch**:
+#### **Step 3: Pull Changes from Dev to Main and Approve Commit**
+- In the `main` branch, pull changes from `dev`:
+  ```bash
+  git checkout main
+  git pull origin dev
+  ```
+- Approve the commit as per branch rules.
 
-    ```bash
-    git checkout main
-    ```
+![Pull Request Approval](images/pull-request.png)
 
-11. **Merge the release branch into the main branch**:
-    ```bash
-    git merge release
-    ```
-# Task 2
+#### **Step 4: Approve and Merge the Commit**
+- Once approved, merge the changes into `main`.
 
+![Commit Approved](images/approved.png)
 
-### Workflow
+#### **Step 5: Successful Merge Confirmation**
+- After merging, verify that changes are successfully applied.
 
-1. Create a branch and make one commit in this branch.
-2. In the rule branch, ensure there is one commit in the dev branch.
-3. In the main branch, pull changes from the dev branch and approve the commit.
-![alt text](images/git-rule-create.png) 
-![alt text](images/change-commit.png) 
-![alt text](<images/pull request.png>) 
-![alt text](images/approved.png) 
-![alt text](<images/successfully merged.png>)
+![Merge Successful](images/successfully-merged.png)
+
+---
+
+### **Conclusion**
+This guide helps ensure a smooth feature development, release, and approval process, maintaining a structured workflow within the Git repository.
+
