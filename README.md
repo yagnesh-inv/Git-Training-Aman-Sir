@@ -1,7 +1,7 @@
 # Feature Development and Release Workflow
 
-![Git workflow](task1.png)
-![Git workflow](task1-1.png)
+![Git workflow](images/task1.png)
+![Git workflow](images/task1-1.png)
 ## Steps
 
 1. **Switch to the feature branch** (create if necessary):
