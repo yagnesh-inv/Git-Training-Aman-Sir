@@ -85,7 +85,7 @@ This section describes how to enforce branch rules, make commits in the dev bran
   ```
 - Make a commit:
   ```bash
-  git commit -m "Your commit message"
+  git commit -m "add changes line"
   ```
 
 ![Commit in Dev Branch](images/change-commit.png)
