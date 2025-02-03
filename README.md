@@ -110,8 +110,4 @@ This section describes how to enforce branch rules, make commits in the dev bran
 
 ![Merge Successful](images/successfully-merged.png)
 
----
-
-### **Conclusion**
-This guide helps ensure a smooth feature development, release, and approval process, maintaining a structured workflow within the Git repository.
 
